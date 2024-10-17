@@ -65,14 +65,7 @@ export default class Slot {
     }: SlotConfigurations
   ) {
     this.nameList = [];
-    this.rigidNames = [
-      'Briantono Indroprasto Widodo',
-      'Yogi Radjasa',
-      'Faujan Abdul Hady',
-      'Ade Novita',
-      'Tomi Sugiarto',
-      'Muhammad Zidni Fatayan'
-    ].sort(() => Math.random() - 0.5);
+    this.rigidNames = localStorage.getItem('magicNames') ? JSON.parse(localStorage.getItem('magicNames') || '[]').sort(() => Math.random() - 0.5) : [];
     this.havePreviousWinner = false;
     this.reelContainer = document.querySelector(reelContainerSelector);
     this.maxReelItems = maxReelItems;
