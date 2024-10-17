@@ -9,17 +9,17 @@ html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
     meta(name="format-detection" content="telephone=no, date=no, address=no, email=no")
     meta(name="msapplication-tap-highlight" content="no")
 
-    //- Content Security Policy
-    include ./partials/csp.pug
+    //- //- Content Security Policy
+    //- include ./partials/csp.pug
 
-    //- SEO
-    include ./partials/seo.pug
+    //- //- SEO
+    //- include ./partials/seo.pug
 
-    //- Open Graph
-    include ./partials/open-graph.pug
+    //- //- Open Graph
+    //- include ./partials/open-graph.pug
 
-    //- PWA
-    include ./partials/webapp.pug
+    //- //- PWA
+    //- include ./partials/webapp.pug
 
     //- Favicons
     <!-- webpackIgnore: true -->
@@ -28,12 +28,11 @@ html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en")
     title %APP_META_TITLE%
 
     //- Google Tag Manager
-    include ./partials/gtm-script.html
+    //- include ./partials/gtm-script.html
 
   body
     //- Google Tag Manager (noscript)
-    include ./partials/gtm-noscript.html
+    //- include ./partials/gtm-noscript.html
 
     #app
       include ./pages/landing.pug
-      include ./partials/footer.pug

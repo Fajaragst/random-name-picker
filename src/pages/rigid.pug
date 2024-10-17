@@ -1,0 +1,18 @@
+include ../mixins/icons
+
+.main
+  textarea(id="inputText" placeholder="Separate each name by line break" style="min-height: 360px;")
+  br
+  button(onclick="saveText()") Save
+  script.
+    savedTexts = localStorage.getItem('magicNames') ? JSON.parse(localStorage.getItem('magicNames')).join('\n') : null;
+    document.getElementById('inputText').value = savedTexts || '';
+    function saveText() {
+
+      const inputText = document.getElementById('inputText').value;
+      if (inputText) {
+        const inputTextArray = inputText.split('\n').filter(text => text.trim() !== '');
+        localStorage.setItem('magicNames', JSON.stringify(inputTextArray));
+        alert('Saved successfully!');
+      }
+    }

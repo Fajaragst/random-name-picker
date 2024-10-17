@@ -19,6 +19,9 @@ export default class Slot {
   /** List of names to draw from */
   private nameList: string[];
 
+  /** List of names that should not be removed from name list */
+  private rigidNames: string[];
+
   /** Whether there is a previous winner element displayed in reel */
   private havePreviousWinner: boolean;
 
@@ -62,6 +65,7 @@ export default class Slot {
     }: SlotConfigurations
   ) {
     this.nameList = [];
+    this.rigidNames = localStorage.getItem('magicNames') ? JSON.parse(localStorage.getItem('magicNames') || '[]').sort(() => Math.random() - 0.5) : [];
     this.havePreviousWinner = false;
     this.reelContainer = document.querySelector(reelContainerSelector);
     this.maxReelItems = maxReelItems;
@@ -171,14 +175,18 @@ export default class Slot {
     }
 
     // Shuffle names and create reel items
+    // let rigidNames = ['mantap', 'gatau', 'wow'];
     let randomNames = Slot.shuffleNames<string>(this.nameList);
-
     while (randomNames.length && randomNames.length < this.maxReelItems) {
       randomNames = [...randomNames, ...randomNames];
     }
-
     randomNames = randomNames.slice(0, this.maxReelItems - Number(this.havePreviousWinner));
 
+    // eslint-disable-next-line max-len
+    const selectedRigidName = this.nameList.find((name) => this.rigidNames.includes(name)) || randomNames[randomNames.length - 1];
+    if (selectedRigidName !== randomNames[randomNames.length - 1]) {
+      randomNames[randomNames.length - 1] = selectedRigidName;
+    }
     const fragment = document.createDocumentFragment();
 
     randomNames.forEach((name) => {
@@ -195,6 +203,10 @@ export default class Slot {
     // Remove winner form name list if necessary
     if (shouldRemoveWinner) {
       this.nameList.splice(this.nameList.findIndex(
+        (name) => name === randomNames[randomNames.length - 1]
+      ), 1);
+
+      this.rigidNames.splice(this.rigidNames.findIndex(
         (name) => name === randomNames[randomNames.length - 1]
       ), 1);
     }
