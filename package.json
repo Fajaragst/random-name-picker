@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack/webpack.prod.conf.js",
     "start": "webpack serve --open --config webpack/webpack.dev.conf.js",
-    "start-server": "node server.js",
+    "start-node": "node server.js",
     "first-release": "npx standard-version --commit-all --tag-prefix v --release-as 1.0.0 --infile CHANGELOG.md",
     "release": "npx standard-version --commit-all --tag-prefix v --infile CHANGELOG.md",
     "prepare": "husky install",
@@ -62,6 +62,7 @@
     "core-js": "^3.35.1",
     "element-remove-polyfill": "^1.1.0",
     "express": "^4.21.1",
+    "vercel": "^37.9.0",
     "web-animations-js": "^2.3.2"
   },
   "browserslist": [
