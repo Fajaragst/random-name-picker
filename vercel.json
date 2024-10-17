@@ -12,12 +12,5 @@
         "dest": "server.js"
       }
     ],
-    "build": {
-      "env": {
-        "NODE_ENV": "production"
-      },
-      "commands": {
-        "build": "yarn build"
-      }
-    }
+    "buildCommand": "yarn build"
   }
