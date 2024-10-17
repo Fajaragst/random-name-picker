@@ -13,3 +13,4 @@ bundle-analyzer-plugin-report.html
 
 /design/appicon-templates-assets
 .vercel
+.env*.local

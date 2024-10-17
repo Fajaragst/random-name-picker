@@ -4,6 +4,8 @@ const app = express();
 
 // Serve static files from the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src/assets')));
+app.use(express.static(path.join(__dirname, 'src/mixins')));
 
 // Set the view engine to Pug
 app.set('view engine', 'pug');
