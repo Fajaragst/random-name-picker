@@ -9,11 +9,18 @@ include ../mixins/icons
 
   canvas#confetti-canvas.confetti
 
+  //- .corner-images
+  //-   img.top-left(src="~@images/sorot.png" alt="Top Left")
+  //-   img.top-right(src="~@images/sorot.png" alt="Top Right")
+  //-   img.bottom-left(src="~@images/sorot.png" alt="Bottom Left")
+  //-   img.bottom-right(src="~@images/sorot.png" alt="Bottom Right")
+
+
   #lucky-draw
     .title
       //- Pug loader currently does not handle webpack alias so we will use relative path here
-      include ../assets/images/doorprize.svg
-
+      //- include ../assets/images/doorprize2.svg
+ 
     .slot
       .slot__outer
         .slot__inner
@@ -22,8 +29,10 @@ include ../mixins/icons
 
       #sunburst.sunburst
         img(src="~@images/sunburst.svg" alt="sunburst")
+    //- br
 
     button#draw-button.solid-button Draw
+  
 
   #settings.settings
     #settings-panel.settings__panel

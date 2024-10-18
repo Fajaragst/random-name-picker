@@ -32,10 +32,18 @@ module.exports = merge(baseWebpackConfig, {
   output: {
     chunkFilename: 'assets/js/[name].chunk.js'
   },
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 1000
+  },
   devServer: {
     host: '0.0.0.0',
     port: 8888,
-    watchFiles: ['src/**/*'],
+    watchFiles: ['src/**/*', 'src/assets/js/Slot.ts', 'src/pages/rigid.pug'],
+    static: './dist', // Serve files from 'dist' directory
+    hot: true, // Enable Hot Module Replacement (HMR)
+    open: true, // Automatically open the browser
+    // liveReload: true,
     client: {
       overlay: {
         warnings: false,

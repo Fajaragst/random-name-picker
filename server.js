@@ -22,8 +22,8 @@ app.get('/rigid', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8888;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
-// module.exports = app;
+// const PORT = process.env.PORT || 8888;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+module.exports = app;
